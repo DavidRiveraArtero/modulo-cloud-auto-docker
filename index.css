@@ -1,0 +1,34 @@
+:root{
+    --br-sm: 5px;
+    --gap-sm: 5px;
+    --gap-ml: 10px;
+    --gap-xl: 15px;
+
+    --padding-ml: 10px;
+    --padding-xl: 15px;
+
+    --radius-ml:10px;
+
+    --box-shadow: 5px 5px 9px -1px rgba(0, 0, 0, 0.49);
+
+    --title-size-xl: 65px;
+    --title-size-ml: 45px;
+
+    --subtitle-size-xl: 30px;
+    --subtitle-size-ml: 20px;
+
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
