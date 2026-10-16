@@ -1,14 +1,19 @@
-FROM node:24-alpine AS build
-
+FROM node:24-alpine AS base
+RUN mkdir -p /usr/app
 WORKDIR /usr/app
 
+FROM base AS build-front
 COPY ./ ./
 RUN npm ci
 RUN npm run build
 
-FROM nginx:alpine AS production
+FROM base AS relase
+COPY --from=build-front /usr/app/dist ./public
+COPY ./server/package.json ./
+COPY ./server/package-lock.json ./
+COPY ./server/index.js ./
 
-COPY --from=build /usr/app/dist /usr/public
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+RUN npm ci --omit=dev
 
-EXPOSE 80
+ENV PORT=8083
+CMD [ "node", "index.js" ] 
